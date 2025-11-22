@@ -588,7 +588,7 @@ namespace RTC
 
 		if (!rtpStream)
 		{
-			MS_WARN_TAG(rtp, "no stream found for received packet [ssrc:%" PRIu32 "]", packet->GetSsrc());
+			MS_WARN_TAG(rtp, "no STREAM found for received packet [ssrc:%" PRIu32 "]", packet->GetSsrc());
 
 #ifdef MS_RTC_LOGGER_RTP
 			packet->logger.Discarded(RtcLogger::RtpPacket::DiscardReason::RECV_RTP_STREAM_NOT_FOUND);
@@ -954,7 +954,7 @@ namespace RTC
 						if (rtpStream->GetRid() == rid)
 						{
 							MS_WARN_TAG(
-							  rtp, "ignoring packet with unknown ssrc but already handled RID (RID lookup)");
+							  rtp, "ignoring PACKET with unknown ssrc but already handled RID (RID lookup)");
 
 							return nullptr;
 						}
