@@ -188,6 +188,17 @@ namespace RTC
 	{
 		MS_TRACE();
 
+		std::string mid1;
+		if (!packet->ReadMid(mid1)) {
+			mid1 = std::string("notset");
+		}
+
+		MS_DUMP(
+			"GetProducer [mid:%s, ssrc:%" PRIu32 ", producerId:%s]",
+			mid1.c_str(),
+			packet->GetSsrc(),
+			producer->id.c_str());
+
 		// First lookup into the SSRC table.
 		{
 			auto it = this->ssrcTable.find(packet->GetSsrc());
