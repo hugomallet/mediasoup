@@ -193,7 +193,8 @@ namespace RTC
 			mid1 = std::string("notset");
 		}
 
-		MS_DUMP(
+		MS_WARN_TAG(
+			rtp,
 			"GetProducer [mid:%s, ssrc:%" PRIu32 ", producerId:%s]",
 			mid1.c_str(),
 			packet->GetSsrc(),
@@ -229,7 +230,8 @@ namespace RTC
 				// Fill the ssrc table.
 
 				// TODO: Change this to MS_DEBUG_DEV().
-				MS_DUMP(
+				MS_WARN_TAG(
+					rtp,
 				  "inserting entry in ssrcTable [mid:%s, ssrc:%" PRIu32 ", producerId:%s]",
 				  mid.c_str(),
 				  packet->GetSsrc(),
@@ -265,7 +267,8 @@ namespace RTC
 				// Fill the ssrc table.
 
 				// TODO: Change this to MS_DEBUG_DEV().
-				MS_DUMP(
+				MS_WARN_TAG(
+					rtp,
 				  "inserting entry in ssrcTable [rid:%s, ssrc:%" PRIu32 ", producerId:%s]",
 				  rid.c_str(),
 				  packet->GetSsrc(),
