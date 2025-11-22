@@ -188,18 +188,6 @@ namespace RTC
 	{
 		MS_TRACE();
 
-		std::string mid1;
-		if (!packet->ReadMid(mid1)) {
-			mid1 = std::string("notset");
-		}
-
-		MS_WARN_TAG(
-			rtp,
-			"GetProducer [mid:%s, ssrc:%" PRIu32 ", producerId:%s]",
-			mid1.c_str(),
-			packet->GetSsrc(),
-			producer->id.c_str());
-
 		// First lookup into the SSRC table.
 		{
 			auto it = this->ssrcTable.find(packet->GetSsrc());
@@ -230,8 +218,7 @@ namespace RTC
 				// Fill the ssrc table.
 
 				// TODO: Change this to MS_DEBUG_DEV().
-				MS_WARN_TAG(
-					rtp,
+				MS_DUMP(
 				  "inserting entry in ssrcTable [mid:%s, ssrc:%" PRIu32 ", producerId:%s]",
 				  mid.c_str(),
 				  packet->GetSsrc(),
@@ -267,8 +254,7 @@ namespace RTC
 				// Fill the ssrc table.
 
 				// TODO: Change this to MS_DEBUG_DEV().
-				MS_WARN_TAG(
-					rtp,
+				MS_DUMP(
 				  "inserting entry in ssrcTable [rid:%s, ssrc:%" PRIu32 ", producerId:%s]",
 				  rid.c_str(),
 				  packet->GetSsrc(),
