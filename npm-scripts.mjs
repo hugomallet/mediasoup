@@ -110,7 +110,8 @@ async function run() {
 			else if (
 				(process.env.MEDIASOUP_LOCAL_DEV ||
 					process.env.MEDIASOUP_SKIP_WORKER_PREBUILT_DOWNLOAD ||
-					process.env.npm_package_resolved?.startsWith('git+ssh://')) &&
+					process.env.npm_package_resolved?.startsWith('git+ssh://') ||
+					process.env.npm_package_resolved?.startsWith('git+https://')) &&
 				!process.env.MEDIASOUP_FORCE_WORKER_PREBUILT_DOWNLOAD
 			) {
 				logInfo(
