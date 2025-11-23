@@ -115,8 +115,10 @@ async function run() {
 				!process.env.MEDIASOUP_FORCE_WORKER_PREBUILT_DOWNLOAD
 			) {
 				logInfo(
-					'skipping mediasoup-worker prebuilt download, building it locally'
+					'Skipping mediasoup-worker prebuilt download, building it locally'
 				);
+
+				cleanWorkerArtifacts();
 
 				buildWorker();
 
